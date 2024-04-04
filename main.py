@@ -12,8 +12,6 @@ parameters = {
 end_point = requests.get(url="https://api.openweathermap.org/data/2.5/forecast",params=parameters)
 end_point.raise_for_status()
 data = end_point.json()
-
-
 will_rain = False
 
 for hour_data in data["list"]:
@@ -25,7 +23,7 @@ if will_rain:
         connection.starttls()
         connection.login(user=my_email,password=my_password)
         connection.sendmail(from_addr=my_email,to_addrs=YOUR EMAIL,msg="Subject:Weather Report\n\nBring an Umbrella.")
-    print("Bring an Umbrella.")
+    
 
 
 
